@@ -2,6 +2,7 @@
 
 export PHANTOMJS_SET=`which phantomjs`
 export CASPERJS_SET=`which casperjs`
+export PHANTOMJS_FLAGS=""
 
 dev:
 	@echo "Checking dev operations..."
@@ -10,6 +11,6 @@ dev:
 
 tests:
 	@echo "Running content_script tests..."
-	casperjs tests/content_scripts/test_ElementCounter.js
+	casperjs tests/content_scripts/test_ElementCounter.js $(PHANTOMJS_FLAGS)
 
 .PHONY: dev tests
