@@ -80,5 +80,16 @@
                 </ul>
             </li>
         </ul>
+        <script type="text/javascript" charset="utf-8">
+            // simulating a remote script which might take some time to be loaded
+            setTimeout(function () {
+                var settingEvents = document.querySelectorAll("body > ul > li");
+                for	(var i = 0; i < settingEvents.length; i++) {
+                    settingEvents[i].addEventListener("click", function () {
+                        console.log("tanto faz");
+                    });
+                }
+            }, 0);
+        </script>
     </body>
 </html>
