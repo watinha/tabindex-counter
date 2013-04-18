@@ -44,21 +44,21 @@
     </head>
     <body>
         <ul>
-            <li class="red">
+            <li class="red" onclick="console.log('oioio');">
                 <ul>
                     <li class="gray"></li>
                     <li class="gray"></li>
                     <li class="gray"></li>
                 </ul>
             </li>
-            <li class="blue">
+            <li class="blue" ondblclick="console.log('oioio');">
                 <ul>
                     <li class="gray"></li>
                     <li class="gray"></li>
                     <li class="gray"></li>
                 </ul>
             </li>
-            <li class="orange">
+            <li class="orange" onmousedown="console.log('ioioioi');">
                 <ul>
                     <li class="gray"></li>
                     <li class="gray"></li>
@@ -90,6 +90,10 @@
                     });
                 }
             }, 0);
+
+            var dois_elementos = document.querySelectorAll(".green, .yellow");
+            dois_elementos[0].onmouseover = function () {console.log("oi")};
+            dois_elementos[1].onmouseout = function () {console.log("oi")};
         </script>
     </body>
 </html>
