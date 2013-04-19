@@ -3,11 +3,16 @@ window.ElementCounter = (function () {
         get_onevents_elements,
         get_tabindex_elements,
         trueAddEventListener,
-        elements_with_listeners = [];
+        elements_with_listeners = [],
+        mouse_events = [
+            "click", "mousedown", "mousemove",
+            "mouseout", "mouseover", "mouseup"
+        ];
 
     trueAddEventListener = HTMLElement.prototype.addEventListener;
-    HTMLElement.prototype.addEventListener = function () {
-        elements_with_listeners.push(this);
+    HTMLElement.prototype.addEventListener = function (type) {
+        if (mouse_events.indexOf(type) >= 0)
+            elements_with_listeners.push(this);
         trueAddEventListener.apply(this, arguments);
     };
 
@@ -24,7 +29,7 @@ window.ElementCounter = (function () {
         var all_nodes = document.getElementsByTagName("*"),
             supported_events = [
                 "onclick", "ondblclick", "onmousedown", "onmousemove",
-                "onmouseout", "onmouseover", "onmouseup", "onmouseleave"
+                "onmouseout", "onmouseover", "onmouseup"
             ],
             nodes_with_event = [];
 

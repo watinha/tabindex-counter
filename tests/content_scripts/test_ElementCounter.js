@@ -16,7 +16,7 @@
             result = self.evaluate(function () {
                 return (ElementCounter.get_listeners_callees());
             });
-            self.test.assertEquals(result, 5, "there should be 5 calls to the addEventListener function");
+            self.test.assertEquals(result, 6, "there should be 6 calls to the addEventListener function");
         }());
 
         (function () {

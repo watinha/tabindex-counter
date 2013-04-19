@@ -83,12 +83,14 @@
         <script type="text/javascript" charset="utf-8">
             // simulating a remote script which might take some time to be loaded
             setTimeout(function () {
-                var settingEvents = document.querySelectorAll("body > ul > li");
-                for	(var i = 0; i < settingEvents.length; i++) {
-                    settingEvents[i].addEventListener("click", function () {
-                        console.log("tanto faz");
-                    });
-                }
+                var settingEvents = document.querySelectorAll("body > ul > li li");
+                settingEvents[0].addEventListener("click", function () { console.log("tanto faz"); });
+                settingEvents[1].addEventListener("mousedown", function () { console.log("tanto faz"); });
+                settingEvents[2].addEventListener("mouseup", function () { console.log("tanto faz"); });
+                settingEvents[3].addEventListener("mouseover", function () { console.log("tanto faz"); });
+                settingEvents[4].addEventListener("mouseout", function () { console.log("tanto faz"); });
+                settingEvents[5].addEventListener("mousemove", function () { console.log("tanto faz"); });
+                settingEvents[6].addEventListener("keydown", function () { console.log("tanto faz"); });
             }, 0);
 
             var dois_elementos = document.querySelectorAll(".green, .yellow");
