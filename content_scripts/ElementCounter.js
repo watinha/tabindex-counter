@@ -28,7 +28,7 @@ window.ElementCounter = (function () {
     get_onevents_elements = function () {
         var all_nodes = document.getElementsByTagName("*"),
             supported_events = [
-                "onclick", "ondblclick", "onmousedown", "onmousemove",
+                "onclick", "onmousedown", "onmousemove",
                 "onmouseout", "onmouseover", "onmouseup"
             ],
             nodes_with_event = [];

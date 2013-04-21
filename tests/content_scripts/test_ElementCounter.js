@@ -27,7 +27,7 @@
                 var result = (ElementCounter.get_onevents_elements());
                 return result;
             });
-            self.test.assertEquals(result, 5, "there should be 5 DOM Nodes with onevents set");
+            self.test.assertEquals(result, 4, "there should be 4 DOM Nodes with onevents set");
         }());
     });
 
