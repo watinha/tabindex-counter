@@ -44,16 +44,16 @@
     </head>
     <body>
         <ul>
-            <li class="red" onclick="console.log('oioio');">
+            <li class="red" onclick="console.log('oioio');" tabindex=0>
                 <ul>
                     <li class="gray"></li>
                     <li class="gray"></li>
                     <li class="gray"></li>
                 </ul>
             </li>
-            <li class="blue">
+            <li class="blue" tabindex=9>
                 <ul>
-                    <li class="gray"></li>
+                    <li class="gray" tabindex=0></li>
                     <li class="gray"></li>
                     <li class="gray"></li>
                 </ul>
@@ -65,7 +65,7 @@
                     <li class="gray"></li>
                 </ul>
             </li>
-            <li class="yellow">
+            <li class="yellow" tabindex=-1>
                 <ul>
                     <li class="gray"></li>
                     <li class="gray"></li>
@@ -91,6 +91,7 @@
                 settingEvents[4].addEventListener("mouseout", function () { console.log("tanto faz"); });
                 settingEvents[5].addEventListener("mousemove", function () { console.log("tanto faz"); });
                 settingEvents[6].addEventListener("keydown", function () { console.log("tanto faz"); });
+                settingEvents[6].tabIndex = 3;
             }, 0);
 
             var dois_elementos = document.querySelectorAll(".green, .yellow");

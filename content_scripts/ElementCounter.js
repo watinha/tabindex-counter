@@ -45,6 +45,17 @@ window.ElementCounter = (function () {
         return nodes_with_event.length;
     };
 
+    get_tabindex_elements = function () {
+        var all_nodes = document.getElementsByTagName("*"),
+            tabindexed = [];
+        for (var i = 0; i < all_nodes.length; i++) {
+            if (all_nodes[i].nodeType == 1 && all_nodes[i].tabIndex >= 0)
+                tabindexed.push(all_nodes[i]);
+        };
+
+        return tabindexed.length;
+    };
+
     return {
         get_listeners_callees: get_listeners_callees,
         get_onevents_elements: get_onevents_elements,

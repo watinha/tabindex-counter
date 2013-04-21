@@ -29,10 +29,21 @@
             });
             self.test.assertEquals(result, 4, "there should be 4 DOM Nodes with onevents set");
         }());
+
+        (function () {
+            var result;
+            self.test.comment("Testing get_tabindex_elements should return the number" +
+                              " of HTML Elements that are focusable");
+            result = self.evaluate(function () {
+                var result = (ElementCounter.get_tabindex_elements());
+                return result;
+            });
+            self.test.assertEquals(result, 4, "there should be 4 HTML Elements that are focusable ");
+        }());
     });
 
     casper.run(function () {
-        this.test.done(3);
+        this.test.done(4);
         this.test.renderResults(true);
     });
 }());
