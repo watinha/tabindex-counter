@@ -10,7 +10,6 @@
         }());
 
         (function () {
-            var result;
             self.test.comment("Testing get_listeners_callees should return the number" +
                               " of calls to the addEventListener method");
             result = self.evaluate(function () {
@@ -20,7 +19,6 @@
         }());
 
         (function () {
-            var result;
             self.test.comment("Testing get_onevents_elements should return the number" +
                               " of ON events attributes in DOM Nodes");
             result = self.evaluate(function () {
