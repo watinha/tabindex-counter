@@ -1,8 +1,8 @@
-window.ElementCounter = (function () {
-    var get_tabindex_elements,
+window.TabIndexElements = (function () {
+    var get_number,
         elements_with_onevents = [];
 
-    get_tabindex_elements = function () {
+    get_number = function () {
         var all_nodes = document.getElementsByTagName("*"),
             tabindexed = [];
         for (var i = 0; i < all_nodes.length; i++) {
@@ -14,6 +14,6 @@ window.ElementCounter = (function () {
     };
 
     return {
-        get_tabindex_elements: get_tabindex_elements
+        get_number: get_number
     };
 }());
