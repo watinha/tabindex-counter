@@ -29,7 +29,7 @@ window.ElementCounter = (function () {
     get_onevents_elements = function () {
         var all_nodes = document.getElementsByTagName("*"),
             supported_events = [
-                "onclick", "ondblclick", "onmousedown", "onmousemove",
+                "onclick", "onmousedown", "onmousemove",
                 "onmouseout", "onmouseover", "onmouseup"
             ];
         elements_with_onevents = [];
@@ -44,6 +44,17 @@ window.ElementCounter = (function () {
         };
 
         return elements_with_onevents.length;
+    };
+
+    get_tabindex_elements = function () {
+        var all_nodes = document.getElementsByTagName("*"),
+            tabindexed = [];
+        for (var i = 0; i < all_nodes.length; i++) {
+            if (all_nodes[i].nodeType == 1 && all_nodes[i].tabIndex >= 0)
+                tabindexed.push(all_nodes[i]);
+        };
+
+        return tabindexed.length;
     };
 
     return {
