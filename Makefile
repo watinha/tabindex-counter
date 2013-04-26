@@ -11,6 +11,6 @@ dev:
 
 tests:
 	@echo "Running content_script tests..."
-	casperjs tests/content_scripts/test_ElementCounter.js $(PHANTOMJS_FLAGS)
+	casperjs test tests/content_scripts/
 
 .PHONY: dev tests
