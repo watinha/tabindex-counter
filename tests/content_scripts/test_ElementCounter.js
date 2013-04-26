@@ -1,22 +1,10 @@
-(function () {
-    var casper = require("casper").create({
-            clientScripts: ["content_scripts/ElementCounter.js",
-                            "content_scripts/ListenerElements.js"]
-        });
+(function (casper) {
+    casper.options.clientScripts = ["content_scripts/ElementCounter.js"];
     casper.start("tests/fixtures/dropdown.html", function () {
         var self = this;
         (function () {
             self.test.comment("Sanity check for tests infra-structure on: dropdown.html");
             self.test.assertTitle("Exemplo menu", "The page title should be correct...");
-        }());
-
-        (function () {
-            self.test.comment("Testing get_listeners_callees should return the number" +
-                              " of calls to the addEventListener method");
-            result = self.evaluate(function () {
-                return (ListenerElements.get_number());
-            });
-            self.test.assertEquals(result, 6, "there should be 6 calls to the addEventListener function");
         }());
 
         (function () {
@@ -42,7 +30,6 @@
     });
 
     casper.run(function () {
-        this.test.done(4);
-        this.test.renderResults(true);
+        this.test.done(3);
     });
-}());
+}(casper));
