@@ -1,6 +1,7 @@
 (function () {
     var casper = require("casper").create({
-            clientScripts: ["content_scripts/ElementCounter.js"]
+            clientScripts: ["content_scripts/ElementCounter.js",
+                            "content_scripts/ListenerElements.js"]
         });
     casper.start("tests/fixtures/dropdown.html", function () {
         var self = this;
@@ -13,7 +14,7 @@
             self.test.comment("Testing get_listeners_callees should return the number" +
                               " of calls to the addEventListener method");
             result = self.evaluate(function () {
-                return (ElementCounter.get_listeners_callees());
+                return (ListenerElements.get_number());
             });
             self.test.assertEquals(result, 6, "there should be 6 calls to the addEventListener function");
         }());

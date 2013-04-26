@@ -1,25 +1,7 @@
 window.ElementCounter = (function () {
-    var get_listeners_callees,
-        get_onevents_elements,
+    var get_onevents_elements,
         get_tabindex_elements,
-        trueAddEventListener,
-        elements_with_listeners = [],
-        elements_with_onevents = [],
-        mouse_events = [
-            "click", "mousedown", "mousemove",
-            "mouseout", "mouseover", "mouseup"
-        ];
-
-    trueAddEventListener = HTMLElement.prototype.addEventListener;
-    HTMLElement.prototype.addEventListener = function (type) {
-        if (mouse_events.indexOf(type) >= 0)
-            elements_with_listeners.push(this);
-        trueAddEventListener.apply(this, arguments);
-    };
-
-    get_listeners_callees = function () {
-        return elements_with_listeners.length;
-    };
+        elements_with_onevents = [];
 
     /*
      * Considering only the mouse events:
@@ -58,7 +40,6 @@ window.ElementCounter = (function () {
     };
 
     return {
-        get_listeners_callees: get_listeners_callees,
         get_onevents_elements: get_onevents_elements,
         get_tabindex_elements: get_tabindex_elements
     };
