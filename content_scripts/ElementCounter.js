@@ -4,6 +4,7 @@ window.ElementCounter = (function () {
         get_tabindex_elements,
         trueAddEventListener,
         elements_with_listeners = [],
+        elements_with_onevents = [],
         mouse_events = [
             "click", "mousedown", "mousemove",
             "mouseout", "mouseover", "mouseup"
@@ -30,19 +31,19 @@ window.ElementCounter = (function () {
             supported_events = [
                 "onclick", "ondblclick", "onmousedown", "onmousemove",
                 "onmouseout", "onmouseover", "onmouseup"
-            ],
-            nodes_with_event = [];
+            ];
+        elements_with_onevents = [];
 
         for (var i = 0; i < all_nodes.length; i++) {
             if (all_nodes[i].nodeType == 1) {
                 for (var j = 0; j < supported_events.length; j++) {
                     if (all_nodes[i][supported_events[j]])
-                        nodes_with_event.push(all_nodes[i][supported_events[j]]);
+                        elements_with_onevents.push(all_nodes[i][supported_events[j]]);
                 };
             }
         };
 
-        return nodes_with_event.length;
+        return elements_with_onevents.length;
     };
 
     return {
