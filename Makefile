@@ -9,8 +9,14 @@ dev:
 	@if [ "$(PHANTOMJS_SET)" ]; then echo "phantomjs... \033[32mOK\033[0m"; else echo "phantomjs... \033[31mNOT ok\033[0m"; fi
 	@if [ "$(CASPERJS_SET)" ]; then echo "casperjs... \033[32mOK\033[0m"; else echo "casperjs... \033[31mNOT ok\033[0m"; fi
 
-tests:
-	@echo "Running content_script tests..."
+tests: unit integration
+
+unit:
+	@echo "Running \033[32munit-tests\033[0m..."
 	casperjs test tests/content_scripts/
 
-.PHONY: dev tests
+integration:
+	@echo "Running \033[31mintegration-tests\033[0m..."
+	casperjs test tests/integration/
+
+.PHONY: dev tests unit integration
