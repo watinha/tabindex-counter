@@ -1,5 +1,6 @@
 window.OnEventElements = (function () {
     var get_number,
+        get_elements,
         elements_with_onevents = [],
         supported_events = [
             "onclick", "onmousedown", "onmousemove",
@@ -22,8 +23,13 @@ window.OnEventElements = (function () {
         return elements_with_onevents.length;
     };
 
+    get_elements = function () {
+        return elements_with_onevents;
+    };
+
     return {
         get_number: get_number,
+        get_elements: get_elements
     };
 }());
 
