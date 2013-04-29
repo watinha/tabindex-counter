@@ -1,5 +1,6 @@
 window.TabIndexElements = (function () {
     var get_number,
+        is_tabindexed,
         elements_with_onevents = [];
 
     get_number = function () {
@@ -13,7 +14,14 @@ window.TabIndexElements = (function () {
         return tabindexed.length;
     };
 
+    is_tabindexed = function (dom_element) {
+        if (dom_element.nodeType == 1 && dom_element.tabIndex >= 0)
+            return true;
+        return false;
+    };
+
     return {
-        get_number: get_number
+        get_number: get_number,
+        is_tabindexed: is_tabindexed
     };
 }());
