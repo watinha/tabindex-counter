@@ -1,5 +1,6 @@
 window.ListenerElements = (function () {
     var get_number,
+        get_elements,
         trueAddEventListener,
         elements_with_listeners = [],
         mouse_events = [
@@ -18,7 +19,11 @@ window.ListenerElements = (function () {
         return elements_with_listeners.length;
     };
 
+    get_elements = function () {
+        return elements_with_listeners;
+    };
     return {
-        get_number: get_number
+        get_number: get_number,
+        get_elements: get_elements
     };
 }());
