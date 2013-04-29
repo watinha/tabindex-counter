@@ -12,7 +12,7 @@ window.OnEventElements = (function () {
         if (all_nodes[i].nodeType == 1) {
             for (var j = 0; j < supported_events.length; j++) {
                 if (all_nodes[i][supported_events[j]])
-                    elements_with_onevents.push(all_nodes[i][supported_events[j]]);
+                    elements_with_onevents.push(all_nodes[i]);
             };
         }
     };
