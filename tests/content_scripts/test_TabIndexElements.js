@@ -2,11 +2,11 @@
     casper.options.clientScripts = ["content_scripts/TabIndexElements.js"];
     casper.start("tests/fixtures/dropdown.html", function () {
         var self = this;
+        self.test.comment("TabIndexElements should help identify interactive" +
+                          " elements in the DOM tree");
 
         (function () {
             var result;
-            self.test.comment("Testing get_tabindex_elements should return the number" +
-                              " of HTML Elements that are focusable");
             result = self.evaluate(function () {
                 var result = (TabIndexElements.get_number());
                 return result;
@@ -16,8 +16,6 @@
 
         (function () {
             var result;
-            self.test.comment("Testing is_tabindexed should return true if the " +
-                              " of HTML Element is focusable");
             result = self.evaluate(function () {
                 var result = (TabIndexElements.is_tabindexed(document.querySelector(".blue")));
                 return result;
@@ -27,8 +25,6 @@
 
         (function () {
             var result;
-            self.test.comment("Testing is_tabindexed should return false if the " +
-                              " of HTML Element is not focusable");
             result = self.evaluate(function () {
                 var result = (TabIndexElements.is_tabindexed(document.querySelector(".yellow")));
                 return result;

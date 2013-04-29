@@ -2,9 +2,9 @@
     casper.options.clientScripts = ["content_scripts/ListenerElements.js"];
     casper.start("tests/fixtures/dropdown.html", function () {
         var self = this;
+        self.test.comment("ListenerElements object should identify calls that were made" +
+                          " to the addEventListener function of the HTMLElement class");
         (function () {
-            self.test.comment("Testing get_number should return the number" +
-                              " of calls to the addEventListener method");
             result = self.evaluate(function () {
                 return (ListenerElements.get_number());
             });

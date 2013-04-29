@@ -2,9 +2,9 @@
     casper.options.clientScripts = ["content_scripts/OnEventElements.js"];
     casper.start("tests/fixtures/dropdown.html", function () {
         var self = this;
+        self.test.comment("OnEventElements object should help identify which" +
+                          " DOM elements have on event attached to it");
         (function () {
-            self.test.comment("Testing get_number should return the number" +
-                              " of ON events attributes in DOM Nodes");
             result = self.evaluate(function () {
                 var result = (OnEventElements.get_number());
                 return result;
