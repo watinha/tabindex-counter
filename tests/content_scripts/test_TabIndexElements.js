@@ -32,27 +32,9 @@
             self.test.assert( ! result, "the yellow should be identified as not interactive");
         }());
 
-        (function () {
-            var result;
-            result = self.evaluate(function () {
-                var result = (TabIndexElements.has_role(document.querySelector(".yellow")));
-                return result;
-            });
-            self.test.assert( ! result, "the yellow element should not return as having role attribute");
-        }());
-
-        (function () {
-            var result;
-            result = self.evaluate(function () {
-                var result = (TabIndexElements.has_role(document.querySelector(".green")));
-                return result;
-            });
-            self.test.assert(result, "the green element should return as having role attribute");
-        }());
-
     });
 
     casper.run(function () {
-        this.test.done(5);
+        this.test.done(3);
     });
 }(casper));

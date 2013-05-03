@@ -21,12 +21,6 @@ window.TabIndexElements = (function () {
         return false;
     };
 
-    has_role = function (dom_element) {
-        if (dom_element.nodeType == 1 && dom_element.getAttribute("role"))
-            return true;
-        return false;
-    };
-
     return {
         get_number: get_number,
         is_tabindexed: is_tabindexed,

@@ -1,6 +1,7 @@
 (function (casper) {
     casper.options.clientScripts = [
         "content_scripts/TabIndexElements.js",
+        "content_scripts/RoleElements.js",
         "content_scripts/ListenerElements.js",
         "content_scripts/OnEventElements.js"];
     casper.start("tests/fixtures/dropdown.html", function () {
@@ -27,7 +28,7 @@
                 var elements = (OnEventElements.get_elements()),
                     result = [];
                 for (var i = 0; i < elements.length; i++) {
-                    result.push(TabIndexElements.has_role(elements[i]));
+                    result.push(RoleElements.has_role(elements[i]));
                 };
                 return result;
             });
@@ -59,7 +60,7 @@
                 var elements = (ListenerElements.get_elements()),
                     result = [];
                 for (var i = 0; i < elements.length; i++) {
-                    result.push(TabIndexElements.has_role(elements[i]));
+                    result.push(RoleElements.has_role(elements[i]));
                 };
                 return result;
             });

@@ -1,6 +1,7 @@
 var casper = require('casper').create({
         clientScripts: [
             "content_scripts/TabIndexElements.js",
+            "content_scripts/RoleElements.js",
             "content_scripts/OnEventElements.js"
         ],
         onPageInitialized: function (page) {
