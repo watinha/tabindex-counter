@@ -23,10 +23,18 @@
             self.test.assert(result, "the green element should return as having role attribute");
         }());
 
+        (function () {
+            var result;
+            result = self.evaluate(function () {
+                var result = (RoleElements.get_number());
+                return result;
+            });
+            self.test.assertEqual(result, 2, "there should be 2 role tagged elements");
+        }());
     });
 
     casper.run(function () {
-        this.test.done(2);
+        this.test.done(3);
     });
 }(casper));
 
