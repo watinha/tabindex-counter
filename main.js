@@ -6,7 +6,9 @@ var casper = require('casper').create({
         onPageInitialized: function (page) {
             // It needs to be inserted as soon as the page is initialized.
             page.injectJs("content_scripts/ListenerElements.js");
-        }
+        },
+        //verbose: true,
+        //logLevel: "debug"
     }),
     url = casper.cli.args[0];
 
@@ -37,16 +39,16 @@ casper.start(url, function () {
         this.echo("Percentage of tabindexed listeners: " + this.evaluate(function () {
             var listener_elements = ListenerElements.get_elements(),
                 onevent_elements = OnEventElements.get_elements(),
-                tabindexed_elements = listener_elements.length + onevent_elements.length;
+                tabindexed_elements = 0.0;
             for (var i = 0; i < listener_elements.length; i++) {
                 if (TabIndexElements.is_tabindexed(listener_elements[i]) ||
                     TabIndexElements.has_role(listener_elements[i]))
-                    tabindexed_elements--;
+                    tabindexed_elements++;
             };
             for (var i = 0; i < onevent_elements.length; i++) {
                 if (TabIndexElements.is_tabindexed(onevent_elements[i]) ||
                     TabIndexElements.has_role(onevent_elements[i]))
-                    tabindexed_elements--;
+                    tabindexed_elements++;
             };
             return (tabindexed_elements / (listener_elements.length + onevent_elements.length)) * 100 + "%";
         }));
