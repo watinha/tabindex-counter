@@ -43,12 +43,12 @@ casper.start(url, function () {
                 tabindexed_elements = 0.0;
             for (var i = 0; i < listener_elements.length; i++) {
                 if (TabIndexElements.is_tabindexed(listener_elements[i]) ||
-                    TabIndexElements.has_role(listener_elements[i]))
+                    RoleElements.has_role(listener_elements[i]))
                     tabindexed_elements++;
             };
             for (var i = 0; i < onevent_elements.length; i++) {
                 if (TabIndexElements.is_tabindexed(onevent_elements[i]) ||
-                    TabIndexElements.has_role(onevent_elements[i]))
+                    RoleElements.has_role(onevent_elements[i]))
                     tabindexed_elements++;
             };
             return (tabindexed_elements / (listener_elements.length + onevent_elements.length)) * 100 + "%";
