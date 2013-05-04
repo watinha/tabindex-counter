@@ -11,7 +11,8 @@ var casper = require('casper').create({
         //verbose: true,
         //logLevel: "debug"
     }),
-    url = casper.cli.args[0];
+    url = casper.cli.args[0],
+    output_format = casper.cli.options["output"] || "simple";
 
 if ( ! url) {
     casper.echo("You should provide a URL to be evaluated...");
@@ -26,6 +27,7 @@ casper.start(url, function () {
 
     this.wait(2000, function () {
         var json_data = {
+            url: url,
             listeners_number: this.evaluate(function () {
                 return ListenerElements.get_number();
             }),
@@ -55,12 +57,19 @@ casper.start(url, function () {
                 return (tabindexed_elements / (listener_elements.length + onevent_elements.length)) * 100 + "%";
             })
         };
-        this.echo(
-            ["Number of JS Listeners:             " + json_data.listeners_number,
-             "Number of on event functions:       " + json_data.onevents_number,
-             "Number of tabindexed elements:      " + json_data.tabindexed_number,
-             "Number of elements with roles:      " + json_data.roles_number,
-             "Percentage of tabindexed listeners: " + json_data.percentage].join("\n"));
+        switch (output_format) {
+            case "simple":
+                this.echo(
+                    ["Number of JS Listeners:             " + json_data.listeners_number,
+                     "Number of on event functions:       " + json_data.onevents_number,
+                     "Number of tabindexed elements:      " + json_data.tabindexed_number,
+                     "Number of elements with roles:      " + json_data.roles_number,
+                     "Percentage of tabindexed listeners: " + json_data.percentage].join("\n"));
+                break;
+            case "json":
+                require("utils").dump(json_data);
+                break;
+         }
     });
 });
 

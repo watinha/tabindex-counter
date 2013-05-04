@@ -1,0 +1,11 @@
+Checking URL: tests/fixtures/dropdown.html
+Page Title: Exemplo menu
+{
+    "url": "tests/fixtures/dropdown.html",
+    "listeners_number": 6,
+    "onevents_number": 4,
+    "tabindexed_number": 4,
+    "roles_number": 2,
+    "percentage": "40%"
+}
+Done.

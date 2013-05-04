@@ -24,16 +24,16 @@ acceptance:
 	casperjs main.js tests/fixtures/dropdown.html > tmp.output
 	wc tests/fixtures/dropdown.html.output | sed "s/ tests.*//" > a
 	wc tmp.output | sed "s/ tmp\.output//" > b
-	diff a b
 	diff tests/fixtures/dropdown.html.output tmp.output
+	diff a b
 	@echo "... \033[32mPASSED\033[0m"
 	@rm tmp.output a b
 	casperjs main.js tests/fixtures/dropdown.html --output=json > tmp.output
 	wc tests/fixtures/dropdown.html.json | sed "s/ tests.*//" > a
 	wc tmp.output | sed "s/ tmp\.output//" > b
-	diff a b
 	diff tests/fixtures/dropdown.html.json tmp.output
+	diff a b
 	@echo "... \033[32mPASSED\033[0m"
-	@rm tmp.output
+	@rm tmp.output a b
 
 .PHONY: dev tests unit integration acceptance
