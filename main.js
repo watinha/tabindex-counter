@@ -35,6 +35,9 @@ casper.start(url, function () {
         this.echo("Number of tabindexed elements:      " + this.evaluate(function () {
             return TabIndexElements.get_number();
         }));
+        this.echo("Number of elements with roles:      " + this.evaluate(function () {
+            return RoleElements.get_number();
+        }));
 
         // measuring how js listeners are set in the tabindex sequence
         this.echo("Percentage of tabindexed listeners: " + this.evaluate(function () {
