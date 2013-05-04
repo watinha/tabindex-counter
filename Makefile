@@ -20,7 +20,7 @@ integration:
 	casperjs test tests/integration/
 
 acceptance:
-	@echo "Running \033[31macceptance-tests\033[0m..."
+	@echo "Running \033[33macceptance-tests\033[0m..."
 	casperjs main.js tests/fixtures/dropdown.html > tmp.output
 	diff tmp.output tests/fixtures/dropdown.html.output
 	@echo "... \033[32mPASSED\033[0m"
