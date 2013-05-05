@@ -54,7 +54,7 @@ casper.start(url, function () {
                         RoleElements.has_role(onevent_elements[i]))
                         tabindexed_elements++;
                 };
-                return (tabindexed_elements / (listener_elements.length + onevent_elements.length)) * 100 + "%";
+                return (tabindexed_elements / (listener_elements.length + onevent_elements.length)) * 100;
             })
         };
         switch (output_format) {
@@ -64,10 +64,16 @@ casper.start(url, function () {
                      "Number of on event functions:       " + json_data.onevents_number,
                      "Number of tabindexed elements:      " + json_data.tabindexed_number,
                      "Number of elements with roles:      " + json_data.roles_number,
-                     "Percentage of tabindexed listeners: " + json_data.percentage].join("\n"));
+                     "Percentage of tabindexed listeners: " + json_data.percentage + "%"].join("\n"));
                 break;
             case "json":
                 require("utils").dump(json_data);
+                break;
+            case "csv":
+                this.echo(
+                    [json_data.url, json_data.listeners_number,
+                     json_data.onevents_number, json_data.tabindexed_number,
+                     json_data.roles_number, json_data.percentage].join("; "));
                 break;
          }
     });
