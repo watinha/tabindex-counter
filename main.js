@@ -25,7 +25,7 @@ casper.start(url, function () {
         return document.title;
     }));
 
-    this.wait(2000, function () {
+    this.wait(10000, function () {
         var json_data = {
             url: url,
             listeners_number: this.evaluate(function () {
