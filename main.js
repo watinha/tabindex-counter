@@ -54,6 +54,8 @@ casper.start(url, function () {
                         RoleElements.has_role(onevent_elements[i]))
                         tabindexed_elements++;
                 };
+                if ((listener_elements.length + onevent_elements.length) === 0)
+                    return 100;
                 return (tabindexed_elements / (listener_elements.length + onevent_elements.length)) * 100;
             })
         };
