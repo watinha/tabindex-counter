@@ -8,6 +8,9 @@ var casper = require('casper').create({
             // It needs to be inserted as soon as the page is initialized.
             page.injectJs("content_scripts/ListenerElements.js");
         },
+        pageSettings: {
+            loadPlugins: false
+        },
         //verbose: true,
         //logLevel: "debug"
     }),
